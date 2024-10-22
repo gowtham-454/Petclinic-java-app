@@ -44,6 +44,7 @@ pipeline {
               sh "ls"
               sh "ls -ltr"
               sh "pwd"
+		sh "sudo chown -R jenkins:jenkins ."
               cleanWs()
               sh "ls"
 	      sh "ls -ltr"
