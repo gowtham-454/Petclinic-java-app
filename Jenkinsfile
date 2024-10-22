@@ -36,10 +36,10 @@ pipeline {
                     git config user.name "gowtham-454"
                     BUILD_NUMBER=${BUILD_NUMBER}
 		    pwd
-                    ls
 		    cp target/petclinic.war war_file/
                     git add target/petclinic.war
                     git commit -m "Update war file ${BUILD_NUMBER}"
+		    echo "its working"
                     git push https://${GITHUB_TOKEN}@github.com/${GIT_USER_NAME}/${GIT_REPO_NAME} HEAD:main
                 '''
             }
