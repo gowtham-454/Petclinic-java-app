@@ -37,18 +37,26 @@ pipeline {
                 }
             }
         }
+
+
+	stage('Deploy to S3') {
+            steps {
+                script {
+                    def warFile = 'target/petclinic.war' // Path to your WAR file
+                    def bucketName = 'petshop454'
+                    sh "aws s3 cp ${warFile} s3://${bucketName}/"
+                }
+            }
+        }
+	    
         stage("clean workspace") {
               steps {
               script {
 	      catchError(buildResult: 'SUCCESS', stageResult: 'SUCCESS') {
-              sh "ls"
               sh "ls -ltr"
               sh "pwd"
               cleanWs()
-              sh "ls"
 	      sh "ls -ltr"
-	      sh "pwd"	
-	      sh "cleanup.sh"
              }
           }
 	}
