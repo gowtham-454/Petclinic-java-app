@@ -37,7 +37,7 @@ pipeline {
                     BUILD_NUMBER=${BUILD_NUMBER}
 		    pwd
                     ls
-		    cp petclinic.war war_file/
+		    cp target/petclinic.war war_file/
                     git add petclinic.war
                     git commit -m "Update war file ${BUILD_NUMBER}"
                     git push https://${GITHUB_TOKEN}@github.com/${GIT_USER_NAME}/${GIT_REPO_NAME} HEAD:main
