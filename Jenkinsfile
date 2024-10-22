@@ -40,18 +40,15 @@ pipeline {
         stage("clean workspace") {
               steps {
               script {
-		       catchError(buildResult: 'SUCCESS', stageResult: 'SUCCESS') {
+	      catchError(buildResult: 'SUCCESS', stageResult: 'SUCCESS') {
               sh "ls"
               sh "ls -ltr"
               sh "pwd"
-		sh "echo $PATH"
-		sh " chown -R jenkins:jenkins ."
               cleanWs()
               sh "ls"
 	      sh "ls -ltr"
 	      sh "pwd"	
-	      sh "sudo rm -rf *"
-	      sh "ls -ltr"
+	      sh "cleanup.sh"
              }
           }
 	}
