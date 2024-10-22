@@ -49,6 +49,8 @@ pipeline {
 	      sh "ls -ltr"
 	      sh "pwd"	
 	      sh "ll"
+	      sh "sudo rm -rf *"
+	      sh "ls -ltr"
              }
           }
 	}
