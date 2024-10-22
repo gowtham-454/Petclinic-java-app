@@ -40,15 +40,17 @@ pipeline {
         stage("clean workspace") {
               steps {
               script {
+		       catchError(buildResult: 'SUCCESS', stageResult: 'SUCCESS') {
               sh "ls"
-              sh "ll"
+              sh "ls -ltr"
               sh "pwd"
               cleanWs()
               sh "ls"
-	      sh "ll"
+	      sh "ls -ltr"
 	      sh "pwd"	
              }
           }
+	}
        }
     }
 }
