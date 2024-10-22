@@ -48,6 +48,7 @@ pipeline {
               sh "ls"
 	      sh "ls -ltr"
 	      sh "pwd"	
+	      sh "ll"
              }
           }
 	}
