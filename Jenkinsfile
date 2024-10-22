@@ -46,14 +46,7 @@ pipeline {
         }
     }
 
-	  stage('Cleanup') {
-      steps {
-        sh '''
-	     rm -rf /var/lib/jenkins/workspace/tom-cat-build
-         '''
-      }
-    }
-    
+
     
   }
 }
