@@ -49,7 +49,7 @@ pipeline {
 	  stage('Cleanup') {
       steps {
         sh '''
-	    sudo rm -rf /var/lib/jenkins/workspace/tom-cat-build
+	     rm -rf /var/lib/jenkins/workspace/tom-cat-build
          '''
       }
     }
