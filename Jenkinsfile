@@ -38,13 +38,13 @@ pipeline {
             }
         }
         stage("clean workspace") {
-            steps {
-                script {
-                    sh "ls"
-                    deleteDir()
-                    sh "ls"
-                }
-            }
-        }
+              steps {
+              script {
+              sh "ls"
+              cleanWs()
+              sh "ls"
+             }
+          }
+       }
     }
 }
