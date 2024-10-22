@@ -6,6 +6,14 @@ pipeline {
     }
   }
   stages {
+
+    stage('Cleanup') {
+      steps {
+        sh '''
+	    sudo rm -rf /var/lib/jenkins/workspace/tom-cat-build
+         '''
+      }
+    }
 		
     stage('Checkout') {
       steps {
