@@ -41,8 +41,12 @@ pipeline {
               steps {
               script {
               sh "ls"
+              sh "ll"
+              sh "pwd"
               cleanWs()
               sh "ls"
+	      sh "ll"
+	      sh "pwd"	
              }
           }
        }
