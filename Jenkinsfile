@@ -22,6 +22,25 @@ pipeline {
                sh "mvn clean install"
             }
     }
+	
+	stage('Update war file') {
+        environment {
+            GIT_REPO_NAME = "Petclinic-java-app"
+            GIT_USER_NAME = "gowtham-454"
+        }
+        steps {
+            withCredentials([string(credentialsId: 'Github', variable: 'GITHUB_TOKEN')]) {
+                sh '''
+                    git config user.email "gowthamhacker454@gmil.com"
+                    git config user.name "gowtham-454"
+                    BUILD_NUMBER=${BUILD_NUMBER}
+                    git add petclinic.war
+                    git commit -m "Update war file ${BUILD_NUMBER}"
+                    git push https://${GITHUB_TOKEN}@github.com/${GIT_USER_NAME}/${GIT_REPO_NAME} HEAD:main
+                '''
+            }
+        }
+}
     
     
   }
