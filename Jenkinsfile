@@ -1,10 +1,5 @@
 pipeline {
-    agent {
-        docker {
-            image 'abhishekf5/maven-abhishek-docker-agent:v1'
-            args '--user root -v /var/run/docker.sock:/var/run/docker.sock' // mount Docker socket to access the host's Docker daemon
-        }
-    }
+    agent { label 'builder3' } // Specify the node with label 'builder3'
     stages {
         stage('Code-Compile') {
             steps {
