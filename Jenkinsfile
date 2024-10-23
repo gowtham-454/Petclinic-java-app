@@ -32,6 +32,16 @@ pipeline {
                 }
             }
         }
+
+	     stage('Upload to S3') {
+            steps {
+                script {
+                    def warFile = 'target/petclinic.war'
+                    def bucketName = 'petshop454'
+                    sh "aws s3 cp ${warFile} s3://${bucketName}/"
+                }
+            }
+        }
         
         stage("clean workspace") {
             steps {
