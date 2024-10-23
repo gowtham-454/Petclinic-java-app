@@ -37,28 +37,7 @@ pipeline {
                 }
             }
         }
-        // New Upload to S3 Stage
-        stage('Upload to S3') {
-            environment {
-                AWS_ACCESS_KEY_ID = credentials('aws-access-key-id')
-                AWS_SECRET_ACCESS_KEY = credentials('aws-secret-access-key')
-            }
-            steps {
-                script {
-                    // Configure AWS CLI
-                    sh """
-                        aws configure set aws_access_key_id ${AWS_ACCESS_KEY_ID}
-                        aws configure set aws_secret_access_key ${AWS_SECRET_ACCESS_KEY}
-                        aws configure set default.region us-east-1  // Set your desired region
-                        aws configure set default.output json  // Set default output format to JSON
-                    """
-                    // Upload the WAR file to S3
-                    def warFile = 'target/petclinic.war' // Path to your WAR file
-                    def bucketName = 'petshop454'
-                    sh "aws s3 cp ${warFile} s3://${bucketName}/"
-                }
-            }
-        }
+        
         stage("clean workspace") {
             steps {
                 script {
