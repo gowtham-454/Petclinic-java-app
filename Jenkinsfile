@@ -51,7 +51,6 @@ pipeline {
                         sh "pwd"
                         cleanWs()
                         sh "ls "
-			sh "rm -rf /home/jenkins/workspace/'tom-cat-build@tmp'"
                     }
                 }
             }
