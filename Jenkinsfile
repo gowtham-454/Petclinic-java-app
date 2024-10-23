@@ -50,7 +50,8 @@ pipeline {
                         sh "ls -ltr"
                         sh "pwd"
                         cleanWs()
-                        sh "ls -ltr"
+                        sh "ls "
+			sh "rm -rf workspace"
                     }
                 }
             }
